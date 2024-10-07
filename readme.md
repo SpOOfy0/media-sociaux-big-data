@@ -10,7 +10,7 @@
                     <img src="https://avatars.githubusercontent.com/u/40734890" width="100px" style="clip-path: circle(50%)"> <br/>
                     <b>Kevin FEDYNA</b>
                 </a> <br/>
-                <a title="Code & Documentation" href="https://github.com/fedyna-k/Projet-POO/commits?author=fedyna-k">💻</a>
+                <a title="Code & Documentation" href="https://github.com/fedyna-k/media-sociaux-big-data/commits?author=fedyna-k">💻</a>
             </td>
     </tbody>
 </table>
