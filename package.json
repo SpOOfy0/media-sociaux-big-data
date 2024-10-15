@@ -4,7 +4,7 @@
   "main": "bin/web-server/app.js",
   "type": "module",
   "scripts": {
-    "postinstall": "python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt",
+    "postinstall": "python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt && mkdir -p logs && touch logs/server.log && touch logs/error.log",
     "prebuild": "rm -fr bin",
     "build": "tsc",
     "postbuild": "npm run copy",

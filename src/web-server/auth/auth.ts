@@ -9,7 +9,7 @@ export namespace Auth {
     if (!existsSync(credentialFilePath)) {
       logger.error({
         message: "API credentials file does not exist. Please provide one.",
-        location: "auth.ts"
+        location: "Auth.getAPIKey"
       });
       return null;
     }
