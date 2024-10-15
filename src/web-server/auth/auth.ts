@@ -1,5 +1,5 @@
 import { readFileSync, existsSync } from "fs";
-import logger from "../asset/logger.js";
+import logger from "../../libs/logger.js";
 
 export namespace Auth {
   const credentialFilePath: string = (import.meta.dirname ?? __dirname) + "/credentials.json";

@@ -1,7 +1,7 @@
 {
   "name": "msbd",
   "version": "1.0.0",
-  "main": "bin/typescript/app.js",
+  "main": "bin/web-server/app.js",
   "type": "module",
   "scripts": {
     "postinstall": "python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt",
@@ -9,11 +9,11 @@
     "build": "tsc",
     "postbuild": "npm run copy",
     "copy": "npm run copyCredentials && npm run copyPublic && npm run copyPython",
-    "copyCredentials": "cp ./src/typescript/auth/credentials.json ./bin/typescript/auth/credentials.json",
+    "copyCredentials": "cp ./src/web-server/auth/credentials.json ./bin/web-server/auth/credentials.json",
     "copyPublic": "cp -r ./src/public ./bin/",
-    "copyPython": "cp -r ./src/python ./bin/",
-    "start": "node . & .venv/bin/python bin/python/app.py",
-    "prepareKey": "echo '{\n  \"api_key\": \"\"\n}' > src/typescript/auth/credentials.json && echo 'Open \"src/typescript/auth/credentials.json\" and provide your Youtube API key.'"
+    "copyPython": "cp -r ./src/machine-learning ./bin/",
+    "start": "node . & .venv/bin/python bin/machine-learning/app.py",
+    "prepareKey": "echo '{\n  \"api_key\": \"\"\n}' > src/web-server/auth/credentials.json && echo 'Open \"src/web-server/auth/credentials.json\" and provide your Youtube API key.'"
   },
   "keywords": [
     "ReVA"

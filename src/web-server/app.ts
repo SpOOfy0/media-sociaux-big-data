@@ -1,5 +1,5 @@
 import express from "express";
-import logger from "./asset/logger.js";
+import logger from "../libs/logger.js";
 import { VideoRouter } from "./router/video.js";
 
 const app = express();
@@ -12,7 +12,7 @@ app.use(express.json());
 app.use("/static", express.static((import.meta.dirname ?? __dirname) + "/../public/static"));
 app.use("/videos", VideoRouter);
 
-app.get("/", (req, res) => {
+app.get("/", (_req, res) => {
   res.render("index", { title: "DataNerd" });
 })
 

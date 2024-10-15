@@ -1,6 +1,6 @@
 import { google } from "googleapis";
 import { Auth } from "../auth/auth.js";
-import logger from "../asset/logger.js";
+import logger from "../../libs/logger.js";
 
 const youtube = google.youtube("v3");
 
