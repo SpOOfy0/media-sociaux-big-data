@@ -14,7 +14,7 @@
   "author": "Kevin Fedyna",
   "license": "ISC",
   "devDependencies": {
-    "@types/express": "^5.0.0",
+    "@types/express": "^4.17.21",
     "@types/node": "^22.7.5",
     "typescript": "^5.6.3"
   },

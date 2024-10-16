@@ -2,7 +2,7 @@ import { readFileSync, existsSync } from "fs";
 import logger from "../libs/logger.js";
 
 export namespace Auth {
-  const credentialFilePath: string = (import.meta.dirname ?? __dirname) + "/credentials.json";
+  const credentialFilePath: string = "/app/credentials.json";
   export const scopes: string[] = ["https://www.googleapis.com/auth/youtube.readonly"];
 
   export function getAPIKey(): string {

@@ -10,7 +10,7 @@ type Server = {
 
 const servers: Server[] = [
   {
-    host: "localhost",
+    host: "web-server",
     port: 13000,
     weight: 1
   }
@@ -60,10 +60,9 @@ function getServer(): Server {
 
 /**
  * Create the redirect middleware
- * @param key The key to append to each request.
  * @returns The redirect function.
  */
-export function createRedirect(key: string): RequestHandler {
+export function createRedirect(): RequestHandler {
   /**
    * Redirects the Express request to the right server.
    * @param req The Express request
@@ -72,15 +71,6 @@ export function createRedirect(key: string): RequestHandler {
   return (req, res) => {
     const server = getServer();
     proxyOptions.target = `http://${server.host}:${server.port}`;
-
-    proxyOptions.on = {
-      proxyReq: proxyReq => {
-        proxyReq.setHeader("Authorization", `Bearer ${key}`);
-      },
-      proxyRes: proxyRes => {
-        delete proxyRes.headers["Authorization"];
-      }
-    };
   
     getRedirect(proxyOptions.target)(req, res, () => {});
   } 
