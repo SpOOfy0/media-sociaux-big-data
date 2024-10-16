@@ -1,6 +1,6 @@
 import { RequestHandler } from "express";
 import { createProxyMiddleware, Options } from "http-proxy-middleware";
-import logger from "../../libs/logger.js";
+import logger from "../libs/logger.js";
 
 type Server = {
   host: string;

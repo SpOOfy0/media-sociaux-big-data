@@ -1,5 +1,5 @@
 import express from "express";
-import logger from "../libs/logger.js";
+import logger from "./libs/logger.js";
 import { Auth } from "./auth/key.js";
 import { createRedirect } from "./handler/redirect.js";
 

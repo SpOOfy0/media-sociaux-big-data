@@ -1,8 +1,8 @@
 import express from "express";
 import { Search } from "../api/search.js";
 import { VideoParser } from "../parser/video.js";
-import logger from "../../libs/logger.js";
-import { Auth } from "../../libs/check-auth.js";
+import logger from "../libs/logger.js";
+import { Auth } from "../libs/check-auth.js";
 
 const VideoRouter = express.Router();
 

@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  firewall:
+    build: ./firewall
+    ports:
+      - "80:80"
+    volumes:
+      - logs:/logs
+  web-server:
+    build: ./web-server
+    volumes:
+      - logs:/logs
+  machine-learning:
+    build: ./machine-learning
+    volumes:
+      - logs:/logs
+  database:
+    build: ./database
+    volumes:
+      - logs:/logs
+
+volumes:
+  logs:

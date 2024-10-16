@@ -1,6 +1,6 @@
 import express from "express";
-import logger from "../libs/logger.js";
-import { Auth } from "../libs/check-auth.js";
+import logger from "./libs/logger.js";
+import { Auth } from "./libs/check-auth.js";
 
 const app = express();
 const port = 13002;

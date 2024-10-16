@@ -1,0 +1,27 @@
+{
+  "name": "web-server",
+  "version": "2.0.0",
+  "description": "The Web server microservice",
+  "main": "bin/app.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node ."
+  },
+  "keywords": [
+    "RéVA"
+  ],
+  "author": "Kevin Fedyna",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.7.5",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "google-auth-library": "^9.14.2",
+    "googleapis": "^144.0.0"
+  }
+}

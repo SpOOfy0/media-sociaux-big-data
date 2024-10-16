@@ -1,8 +1,8 @@
 import { readFileSync, existsSync } from "fs";
-import logger from "../../libs/logger.js";
+import logger from "../libs/logger.js";
 
 export namespace Auth {
-  const keyPath: string = (import.meta.dirname ?? __dirname) + "/../../../.key";
+  const keyPath: string = (import.meta.dirname ?? __dirname) + "/../../.key";
 
   /**
    * Emulates inner network through authorization key.
