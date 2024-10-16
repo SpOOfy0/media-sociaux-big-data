@@ -15,7 +15,7 @@ const basePath = (import.meta.dirname ?? __dirname) + "/../../logs/";
  */
 function writeInFile(log: string, type: "info" | "warning" | "error") {
   const file = type == "error" ? "error.log" : "server.log";
-  appendFileSync(basePath + file, log);
+  appendFileSync(basePath + file, log + "\n");
 }
 
 /**
@@ -27,7 +27,7 @@ function info(params: LoggerParameters) {
   const tag = `\x1b[1m\x1b[96m[i]\x1b[0m  `;
   const log = `[${date}] ${tag}(${params.location}) ${params.message}`;
   console.log(log);
-  writeInFile(log, "info");
+  writeInFile(`[${date}] [i] (${params.location}) ${params.message}`, "info");
 }
 
 /**
@@ -39,7 +39,7 @@ function warn(params: LoggerParameters) {
   const tag = `\x1b[1m\x1b[93m[w]\x1b[0m  `;
   const log = `[${date}] ${tag}(${params.location}) ${params.message}`;
   console.warn(log);
-  writeInFile(log, "warning");
+  writeInFile(`[${date}] [w] (${params.location}) ${params.message}`, "warning");
 }
 
 /**
@@ -49,13 +49,13 @@ function warn(params: LoggerParameters) {
 function error(params: LoggerParameters) {
   const date = (new Date()).toISOString();
   const tag = `\x1b[1m\x1b[91m[e]\x1b[0m  `;
-  const log = `[${date}] ${tag}(${params.location}) ${params.message} ${params.error}`;
+  const log = `[${date}] ${tag}(${params.location}) ${params.message} ${params.error ?? ""}`;
   console.error(log);
-  writeInFile(log, "error");
+  writeInFile(`[${date}] [e] (${params.location}) ${params.message} ${params.error ?? ""}`, "error");
 }
 
 export default {
   info,
   warn,
   error
-}
+};

@@ -1,7 +1,8 @@
-import express, { response } from "express";
+import express from "express";
 import { Search } from "../api/search.js";
 import { VideoParser } from "../parser/video.js";
 import logger from "../../libs/logger.js";
+import { Auth } from "../../libs/check-auth.js";
 
 const VideoRouter = express.Router();
 
@@ -25,10 +26,13 @@ async function sendPythonServerRequests(json: any[]): Promise<string[]> {
     madeForKids: data.madeForKids ? 1 : 0
   }));
 
+  const key = Auth.getKey();
+
   const pairsPromise = fetch("http://localhost:13001/pairs", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${key}`
     },
     body: JSON.stringify(data)
   });
@@ -36,7 +40,8 @@ async function sendPythonServerRequests(json: any[]): Promise<string[]> {
   const outliersPromise = fetch("http://localhost:13001/outliers", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${key}`
     },
     body: JSON.stringify(data)
   });
@@ -44,7 +49,8 @@ async function sendPythonServerRequests(json: any[]): Promise<string[]> {
   const importancePromise = fetch("http://localhost:13001/importance", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${key}`
     },
     body: JSON.stringify({
       data,

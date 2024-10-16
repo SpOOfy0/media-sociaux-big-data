@@ -63,19 +63,20 @@ npm run build
 ```
 
 For specific parts:
-- To build only the TypeScript part: ``npx tsc``.
-- To build only the Python part: ``npm run copyPython``.
+- To build only the TypeScript microservices: ``npx tsc``.
+- To build only the Python microservices: ``npm run copyPython``.
 - To update the static files: ``npm run copyPublic``.
-- To update the credentials (need TS server restart): ``npm run copyCredentials``.
+- To update the credentials (need data collector service restart): ``npm run copyCredentials``.
 
 ## 🏃 Running the project 🏃
 
 Change directory to the root directory of this project if not already done.
-Then run the following command :
+Then run the following commands in different terminals :
 ```sh
-npm start
+npm run startFirewall
+npm run startWebServer
+npm run startMachineLearning
 ```
-It will start both the TypeScript and the Python server.
 
 ## 📖 License 📖
 
