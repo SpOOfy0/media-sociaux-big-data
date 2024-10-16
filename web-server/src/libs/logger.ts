@@ -6,7 +6,7 @@ type LoggerParameters = {
   error?: string;
 };
 
-const basePath = (import.meta.dirname ?? __dirname) + "/../../logs/";
+const basePath = "/logs/";
 
 /**
  * Writes the given log inside the corresponding log file.
