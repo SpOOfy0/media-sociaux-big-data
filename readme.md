@@ -20,28 +20,12 @@
 ### 🏗️ Prerequisites
 
 Make sure to have the following packages on your computer:
-- `node`: The JavaScript server runtime.
-- `npm`: The Node Packet Manager.
-- `python3`: A Python 3.X version.
-- `venv`: The Python virtual environement generator.
-
-> Please note that this project is made for UNIX environments, you'll need to change the following line for Windows :
-> ```
-> [package.json - l.7]
-> - "postinstall": "... && source .venv/bin/activate     && ...",
-> + "postinstall": "... && source .venv/bin/activate.ps1 && ...",
->                                                   ^^^^
-> ```
+- `docker`: Allow for service containerization;
+- `docker-compose`: Allow for easier services and network building and deployment. 
 
 ### 📂 Dependencies
 
-Now that everything is set up, `npm` is able to handle all packages (even the python ones). 
-
-To install all dependencies, simply run the following command at project's root.
-
-```sh
-npm install
-```
+If you want to code locally on a microservice, go to the given directory and 
 
 ### 🔑 Providing your API key
 
