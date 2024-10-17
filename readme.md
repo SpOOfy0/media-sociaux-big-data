@@ -19,15 +19,7 @@
 
 ### 🏗️ Prerequisites
 
-Make sure to have the following mandatory packages on your computer:
-- `docker`: Allow for service containerization;
-- `docker-compose`: Allow for easier services and network building and deployment. 
-
-For local development, you will need to have:
-- `node`: The JavaScript server runtime.
-- `npm`: The Node Packet Manager.
-- `python3`: A Python 3.X version.
-- `venv`: The Python virtual environement generator.
+Make sure to have the latest `docker` available on your computer. 
 
 ### 📂 Dependencies
 
@@ -52,29 +44,34 @@ The project is no monolith, so you can build different parts quite easily.
 
 To build **the entire project**, run the following command:
 ```sh
-docker-compose build
+docker compose build
 ```
 
 To build specific parts, run the following command:
 ```sh
-docker-compose build <microservice>
+docker compose build <microservice>
+```
+
+To remove all dangling images from your disk, run the following command:
+```sh
+docker image prune
 ```
 
 ## 🏃 Running the project 🏃
 
 To run **the entire project**, run the following command:
 ```sh
-docker-compose up
+docker compose up
 ```
 
 If you want to shutdown the project, run the following command:
 ```sh
-docker-compose down
+docker compose down
 ```
 
 To restart a given microservice, run the following command:
 ```sh
-docker-compose restart <microservice>
+docker compose restart <microservice>
 ```
 
 While developing, you may want to build and restart individual services in order to keep your app up and running.
