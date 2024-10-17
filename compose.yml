@@ -6,9 +6,14 @@ services:
       - "80:80"
     volumes:
       - logs:/logs
+    depends_on:
+      - web-server
 
   web-server:
     build: ./web-server
+    depends_on:
+      - machine-learning
+      - database
     volumes:
       - logs:/logs
 

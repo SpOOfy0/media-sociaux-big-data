@@ -4,7 +4,7 @@
 # Then it compiles the typescript.
 # Then the port is exposed and the microservice started.
 
-FROM node:latest
+FROM node:current-alpine
 
 WORKDIR /app
 

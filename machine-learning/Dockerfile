@@ -3,7 +3,8 @@
 # This Docker image installs all dependencies
 # and runs on latest Python possible.
 
-FROM python:latest
+FROM python:alpine
+RUN apk add --no-cache gcc g++ gfortran lapack-dev libffi-dev libressl-dev musl-dev
 
 WORKDIR /app
 
