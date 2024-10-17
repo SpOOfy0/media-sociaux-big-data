@@ -19,48 +19,65 @@
 
 ### 🏗️ Prerequisites
 
-Make sure to have the following packages on your computer:
+Make sure to have the following mandatory packages on your computer:
 - `docker`: Allow for service containerization;
 - `docker-compose`: Allow for easier services and network building and deployment. 
 
+For local development, you will need to have:
+- `node`: The JavaScript server runtime.
+- `npm`: The Node Packet Manager.
+- `python3`: A Python 3.X version.
+- `venv`: The Python virtual environement generator.
+
 ### 📂 Dependencies
 
-If you want to code locally on a microservice, go to the given directory and 
+In each microservice, you'll find a `local.sh` file that will go through the dependency installation process.
+For python microservices, it will also create the virtual environment.
+
+You simply need to run the following command:
+```sh
+cd <microservice>
+sh local.sh
+```
 
 ### 🔑 Providing your API key
 
-When all your dependencies are set, you can run the following script:
-```sh
-npm run prepareKey
-```
-It will create the ``credentials.json`` file that will contain your Youtube API key.
+If you installed the web-server service, you'll find a templated `credentials.json` at service root.
 
-You will also have the file path in order to provide your key (visible in GCP API console).
+This file needs to be filled with your Youtube API key.
 
 ### 👷 Building the project
 
 The project is no monolith, so you can build different parts quite easily.
 
-To build **all the project**, run the following command:
+To build **the entire project**, run the following command:
 ```sh
-npm run build
+docker-compose build
 ```
 
-For specific parts:
-- To build only the TypeScript microservices: ``npx tsc``.
-- To build only the Python microservices: ``npm run copyPython``.
-- To update the static files: ``npm run copyPublic``.
-- To update the credentials (need data collector service restart): ``npm run copyCredentials``.
+To build specific parts, run the following command:
+```sh
+docker-compose build <microservice>
+```
 
 ## 🏃 Running the project 🏃
 
-Change directory to the root directory of this project if not already done.
-Then run the following commands in different terminals :
+To run **the entire project**, run the following command:
 ```sh
-npm run startFirewall
-npm run startWebServer
-npm run startMachineLearning
+docker-compose up
 ```
+
+If you want to shutdown the project, run the following command:
+```sh
+docker-compose down
+```
+
+To restart a given microservice, run the following command:
+```sh
+docker-compose restart <microservice>
+```
+
+While developing, you may want to build and restart individual services in order to keep your app up and running.
 
 ## 📖 License 📖
 
