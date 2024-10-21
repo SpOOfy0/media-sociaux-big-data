@@ -3,7 +3,7 @@ import logger from "./libs/logger.js";
 import { createRedirect } from "./handler/redirect.js";
 
 const app = express();
-const port = 80;
+const port = process.env.WAF_IN_PORT;
 
 app.use(express.json());
 

@@ -1,13 +1,15 @@
 services:
 
-  firewall:
-    build: ./firewall
+  waf-in:
+    build: ./waf-in
     ports:
-      - "80:80"
+      - "${WAF_IN_PORT}:${WAF_IN_PORT}"
     volumes:
       - logs:/logs
     depends_on:
       - web-server
+    environment:
+      - WAF_IN_PORT=${WAF_IN_PORT}
 
   web-server:
     build: ./web-server
@@ -16,17 +18,38 @@ services:
       - database
     volumes:
       - logs:/logs
+    environment:
+      - WEB_SERVER_PORT=${WEB_SERVER_PORT}
+      - YOUTUBE_API_KEY=${YOUTUBE_API_KEY}
 
   machine-learning:
     build: ./machine-learning
     volumes:
       - logs:/logs
+    environment:
+      - MACHINE_LEARNING_PORT=${MACHINE_LEARNING_PORT}
 
   database:
     build: ./database
+    depends_on:
+      - mongo
     volumes:
       - logs:/logs
+    environment:
+      - DATABASE_PORT={DATABASE_PORT}
+  
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
+    volumes:
+      - mongo-db:/data/db
+      - mongo-config:/data/configdb
 
 
 volumes:
   logs:
+  mongo-db:
+  mongo-config:

@@ -2,7 +2,7 @@ import express from "express";
 import logger from "./libs/logger.js";
 
 const app = express();
-const port = 13002;
+const port = process.env.DATABASE_PORT;
 
 app.use(express.json());
 

@@ -3,7 +3,7 @@ import logger from "./libs/logger.js";
 import { VideoRouter } from "./router/video.js";
 
 const app = express();
-const port = 13000;
+const port = process.env.WEB_SERVER_PORT;
 
 app.set("view engine", "ejs");
 app.set("views", "/app/public/views");

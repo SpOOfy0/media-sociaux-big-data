@@ -1,21 +1,17 @@
-import { readFileSync, existsSync } from "fs";
 import logger from "../libs/logger.js";
 
 export namespace Auth {
-  const credentialFilePath: string = "/app/credentials.json";
   export const scopes: string[] = ["https://www.googleapis.com/auth/youtube.readonly"];
 
   export function getAPIKey(): string {
-    if (!existsSync(credentialFilePath)) {
+    if (process.env.YOUTUBE_API_KEY == undefined) {
       logger.error({
-        message: "API credentials file does not exist. Please provide one.",
+        message: "Youtube API key not provided in .env. Please provide one.",
         location: "Auth.getAPIKey"
       });
       return null;
     }
 
-    const credentialsFile = readFileSync(credentialFilePath, "utf-8");
-    const credentials = JSON.parse(credentialsFile);
-    return credentials.api_key;
+    return process.env.YOUTUBE_API_KEY;
   }
 }

@@ -1,7 +1,7 @@
 {
-  "name": "firewall",
+  "name": "waf-in",
   "version": "2.0.0",
-  "description": "The Firewall and proxy microservice",
+  "description": "The WAF Ingress microservice",
   "main": "bin/app.js",
   "type": "module",
   "scripts": {
