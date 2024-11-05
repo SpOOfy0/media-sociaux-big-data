@@ -1,10 +1,7 @@
-import { youtube_v3 } from "googleapis";
-import { CSV } from "./csv.js";
-
 export class VideoParser {
-  private videos: youtube_v3.Schema$Video[];
+  private videos: any[];
 
-  constructor(videos: youtube_v3.Schema$Video[]) {
+  constructor(videos: any[]) {
     this.videos = videos;
   }
 
@@ -46,9 +43,9 @@ export class VideoParser {
     return second + 60 * minute + 3600 * hour;
   }
 
-  parse(options?: {type?: "csv"|"json"}): string {
+  parse(): string {
     const videos = this.preprocess();
 
-    return options?.type == "csv" ? CSV.from(videos) : JSON.stringify(videos);
+    return JSON.stringify(videos);
   }
 }

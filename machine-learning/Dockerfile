@@ -13,6 +13,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-EXPOSE 13001
+EXPOSE ${MACHINE_LEARNING_PORT}
 
 CMD [ "python", "src/app.py" ]

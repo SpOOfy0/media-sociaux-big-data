@@ -16,6 +16,6 @@ COPY . .
 
 RUN npm run build
 
-EXPOSE ${WEB_SERVER_PORT}
+EXPOSE ${DATA_COLLECTOR_PORT}
 
 CMD [ "npm", "start" ]

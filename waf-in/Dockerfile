@@ -16,6 +16,6 @@ COPY . .
 
 RUN npm run build
 
-EXPOSE 80
+EXPOSE ${WAF_IN_PORT}
 
 CMD [ "npm", "start" ]

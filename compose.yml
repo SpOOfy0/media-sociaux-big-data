@@ -9,6 +9,7 @@ services:
     depends_on:
       - web-server
     environment:
+      - WEB_SERVER_PORT=${WEB_SERVER_PORT}
       - WAF_IN_PORT=${WAF_IN_PORT}
 
   web-server:
@@ -16,11 +17,13 @@ services:
     depends_on:
       - machine-learning
       - database
+      - data-collector
     volumes:
       - logs:/logs
     environment:
       - WEB_SERVER_PORT=${WEB_SERVER_PORT}
-      - YOUTUBE_API_KEY=${YOUTUBE_API_KEY}
+      - MACHINE_LEARNING_PORT=${MACHINE_LEARNING_PORT}
+      - DATABASE_PORT=${DATABASE_PORT}
 
   machine-learning:
     build: ./machine-learning
@@ -29,6 +32,17 @@ services:
     environment:
       - MACHINE_LEARNING_PORT=${MACHINE_LEARNING_PORT}
 
+  data-collector:
+    build: ./data-collector
+    depends_on:
+      - database
+    volumes:
+      - logs:/logs
+    environment:
+      - DATA_COLLECTOR_PORT=${DATA_COLLECTOR_PORT}
+      - DATABASE_PORT=${DATABASE_PORT}
+      - YOUTUBE_API_KEY=${YOUTUBE_API_KEY}
+
   database:
     build: ./database
     depends_on:
@@ -36,7 +50,10 @@ services:
     volumes:
       - logs:/logs
     environment:
-      - DATABASE_PORT={DATABASE_PORT}
+      - DATA_COLLECTOR_PORT=${DATA_COLLECTOR_PORT}
+      - DATABASE_PORT=${DATABASE_PORT}
+      - MONGO_USERNAME=${MONGO_USERNAME}
+      - MONGO_PASSWORD=${MONGO_PASSWORD}
   
   mongo:
     image: mongo

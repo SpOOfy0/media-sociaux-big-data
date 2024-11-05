@@ -11,7 +11,7 @@ type Server = {
 const servers: Server[] = [
   {
     host: "web-server",
-    port: 13000,
+    port: Number.parseInt(process.env.WEB_SERVER_PORT),
     weight: 1
   }
 ];

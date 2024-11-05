@@ -3,14 +3,14 @@ import logger from "./libs/logger.js";
 import { VideoRouter } from "./router/video.js";
 
 const app = express();
-const port = process.env.DATABASE_PORT;
+const port = process.env.DATA_COLLECTOR_PORT;
 
 app.use(express.json());
-app.use("/videos", VideoRouter)
+app.use("/videos", VideoRouter);
 
 app.listen(port, () => {
   logger.info({
-    message: `Database service started on port ${port}.`,
-    location: "database"
+    message: `Data collector service started on port ${port}.`,
+    location: "data-collector"
   });
 });

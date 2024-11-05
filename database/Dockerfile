@@ -16,6 +16,6 @@ COPY . .
 
 RUN npm run build
 
-EXPOSE 13002
+EXPOSE ${DATABASE_PORT}
 
 CMD [ "npm", "start" ]

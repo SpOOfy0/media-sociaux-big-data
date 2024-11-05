@@ -12,6 +12,6 @@ app.use(createRedirect());
 app.listen(port, () => {
   logger.info({
     message: `Firewall started on port ${port}.`,
-    location: "start"
+    location: "waf-in"
   });
 });
