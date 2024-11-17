@@ -3,6 +3,7 @@ from handler.cors import *
 from router.pairs import *
 from router.importance import *
 from router.outliers import *
+from router.sentiment import *
 from os import environ
 
 
