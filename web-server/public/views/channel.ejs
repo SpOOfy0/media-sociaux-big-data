@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("partials/head.ejs", {title: title}) %> 
+    <link rel="stylesheet" href="/static/style/channel.css">
+    <script src="/static/script/channel.js" defer></script>
+    <script src="/static/script/loader.js" defer></script>
+  </head>
+  <body>
+    <%- include("partials/header.ejs") %> 
+    <div id="main-content">
+      <form>
+        <label for="channel">Enter channel</label>
+        <input type="text" name="channel" id="channel">
+      </form>
+
+      <div id="graphs"></div>
+    </div>
+    <%- include("partials/footer.ejs") %> 
+  </body>
+</html>

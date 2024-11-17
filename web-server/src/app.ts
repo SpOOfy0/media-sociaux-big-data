@@ -1,6 +1,7 @@
 import express from "express";
 import logger from "./libs/logger.js";
 import { VideoRouter } from "./router/video.js";
+import { ChannelRouter } from "./router/channel.js";
 
 const app = express();
 const port = process.env.WEB_SERVER_PORT;
@@ -12,6 +13,7 @@ app.use(express.json());
 
 app.use("/static", express.static("/app/public/static"));
 app.use("/videos", VideoRouter);
+app.use("/channels", ChannelRouter);
 
 app.get("/", (_req, res) => {
   res.render("index", { title: "DataNerd" });
