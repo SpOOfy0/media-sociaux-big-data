@@ -1,0 +1,49 @@
+form {
+  display: flex;
+  justify-content: stretch;
+  padding: 0 4em;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+form * {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+#comments {
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.comment {
+  display: grid;
+  grid-template-columns: 1fr 4em;
+}
+
+.comment div:last-of-type {
+  font-style: italic;
+  color: rgb(73, 73, 73);
+}
+
+.comment .score {
+  grid-row: span 2;
+  justify-self: center;
+  align-self: center;
+  width: 3em;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-content: center;
+  border-radius: 2em;
+  color: white;
+}
+
+.score.positive {
+  background-color: hsl(110, 50%, 30%);
+}
+
+.score.negative {
+  background-color: hsl(0, 50%, 30%);
+}

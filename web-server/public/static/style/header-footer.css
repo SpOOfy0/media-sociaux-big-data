@@ -8,6 +8,12 @@ header {
 header > nav {
   display: flex;
   gap: 1em;
+  align-items: center;
+}
+
+header img {
+  width: 2em;
+  height: 2em;
 }
 
 footer {

@@ -11,7 +11,7 @@ ChannelRouter.get("/", (_req, res) => {
 ChannelRouter.get("/:query", async (req, res) => {
   const data = (await (await fetch(`http://database:${process.env.DATABASE_PORT}/channels/${req.params.query}`)).json()).comments;
   
-  const [sentiment] = await sendPythonServerRequests(data);
+  const [sentiment, explaination] = await sendPythonServerRequests(data);
 
   logger.info({
     message: "Returning result to requester.",
@@ -22,7 +22,8 @@ ChannelRouter.get("/:query", async (req, res) => {
     query: req.params.query,
     type: "json",
     result: data,
-    sentiment: JSON.parse(sentiment)
+    sentiment: JSON.parse(sentiment),
+    explaination: JSON.parse(explaination),
   });
 });
 

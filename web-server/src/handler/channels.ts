@@ -12,7 +12,21 @@ export async function sendPythonServerRequests(json: any[]): Promise<string[]> {
     body: JSON.stringify(json)
   });
 
-  const responses = await Promise.all([sentimentPromise]);
+  const sentiments = await (await sentimentPromise).json();
 
-  return Promise.all(responses.map(response => response.text()));
+  const query = json.map((value, index) => ({
+    comment: value.comment,
+    sentiment: sentiments[index].label,
+    score: sentiments[index].score,
+  }))
+
+  const explanationPromise = await fetch(`http://machine-learning:${process.env.MACHINE_LEARNING_PORT}/explaination`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(query)
+  });
+
+  return Promise.all([JSON.stringify(sentiments), explanationPromise.text()]);
 }

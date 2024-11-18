@@ -3,8 +3,9 @@
 # This Docker image installs all dependencies
 # and runs on latest Python possible.
 
-FROM python:alpine
-RUN apk add --no-cache gcc g++ gfortran lapack-dev libffi-dev libressl-dev musl-dev
+FROM huggingface/transformers-torch-light:latest
+# FROM python:alpine
+# RUN apk add --no-cache gcc g++ gfortran lapack-dev libffi-dev libressl-dev musl-dev
 
 WORKDIR /app
 
