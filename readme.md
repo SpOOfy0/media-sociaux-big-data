@@ -12,6 +12,14 @@
                 </a> <br/>
                 <a title="Code & Documentation" href="https://github.com/fedyna-k/media-sociaux-big-data/commits?author=fedyna-k">💻</a>
             </td>
+            <td width="25%" align="center" valign="top">
+                <a href="https://github.com/SpOOfy0">
+                    <img src="https://avatars.githubusercontent.com/u/120486825" width="100px" style="clip-path: circle(50%)"> <br/>
+                    <b>Youness Zaitouni</b>
+                </a> <br/>
+                <a title="Code & Documentation" href="https://github.com/SpOOfy0/media-sociaux-big-data/commits?author=SpOOfy0">🧠</a>
+            </td>
+        </tr>
     </tbody>
 </table>
 
@@ -29,7 +37,7 @@ For python microservices, it will also create the virtual environment.
 You simply need to run the following command:
 ```sh
 cd <microservice>
-sh local.sh
+sh local.sh 
 ```
 
 ### 🔑 Providing your API key

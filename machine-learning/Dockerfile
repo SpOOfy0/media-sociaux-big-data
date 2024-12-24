@@ -4,14 +4,17 @@
 # and runs on latest Python possible.
 
 FROM huggingface/transformers-torch-light:latest
-# FROM python:alpine
-# RUN apk add --no-cache gcc g++ gfortran lapack-dev libffi-dev libressl-dev musl-dev
 
 WORKDIR /app
 
+# Installer les dépendances
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Télécharger le modèle
+RUN python -c "from transformers import pipeline; pipeline('text-generation', model='gpt2-large')"
+
+# Copier le code source
 COPY . .
 
 EXPOSE ${MACHINE_LEARNING_PORT}

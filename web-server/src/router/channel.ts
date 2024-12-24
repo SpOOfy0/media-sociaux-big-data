@@ -8,8 +8,13 @@ ChannelRouter.get("/", (_req, res) => {
   res.render("channel", { title: "DataNerd - Channel" });
 });
 
+console.log(process.env);
+
 ChannelRouter.get("/:query", async (req, res) => {
-  const data = (await (await fetch(`http://database:${process.env.DATABASE_PORT}/channels/${req.params.query}`)).json()).comments;
+  const response = await fetch(`http://database:${process.env.DATABASE_PORT}/channels/${req.params.query}`);
+  const json = await response.json();
+  const data = json?.comments || [];
+  // const data = (await (await fetch(`http://database:27017/channels/${req.params.query}`)).json()).comments;
   
   const [sentiment, explaination] = await sendPythonServerRequests(data);
 
