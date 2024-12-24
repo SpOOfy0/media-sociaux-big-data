@@ -1,0 +1,25 @@
+form {
+  display: flex;
+  justify-content: stretch;
+  padding: 0 4em;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+form * {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+#graphs {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 4em;
+}
+
+#graphs img {
+  width: 100%;
+  aspect-ratio: 1;
+  border: none;
+}

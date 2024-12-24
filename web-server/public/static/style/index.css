@@ -1,0 +1,34 @@
+#main-content {
+  display: grid;
+  place-content: center;
+}
+
+#typer {
+  position: relative;
+  font-size: 4em;
+}
+
+#typer::before {
+  content: "";
+  position: absolute;
+  background-color: white;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  transform-origin: right;
+  animation:
+    typer 2s steps(15) 1s forwards,
+    caret 500ms linear 0s 6 forwards;
+}
+
+@keyframes caret {
+  from { border-left: 1px solid black; }
+  to { border-left: none; }
+}
+
+@keyframes typer {
+  from { transform: scaleX(1); }
+  to { transform: scaleX(0); }
+}

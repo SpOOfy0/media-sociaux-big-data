@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("partials/head.ejs", {title: title}) %> 
+    <link rel="stylesheet" href="/static/style/videos.css">
+    <script src="/static/script/videos.js" defer></script>
+    <script src="/static/script/loader.js" defer></script>
+  </head>
+  <body>
+    <%- include("partials/header.ejs") %> 
+    <div id="main-content">
+      <form>
+        <label for="query">Enter query</label>
+        <input type="text" name="query" id="query">
+      </form>
+
+      <div id="graphs"></div>
+    </div>
+    <%- include("partials/footer.ejs") %> 
+  </body>
+</html>
