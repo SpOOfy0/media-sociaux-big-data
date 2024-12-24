@@ -1,3 +1,4 @@
 node_modules/
 .env
 machine-learning/.venv/
+web-server/credentials.json
