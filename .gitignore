@@ -1,4 +1,5 @@
 node_modules/
 .env
 machine-learning/.venv/
-web-server/credentials.json
+machine-learning/src/test.py
+machine-learning/src/router/test.py
