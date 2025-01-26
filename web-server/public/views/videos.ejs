@@ -1,21 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include("partials/head.ejs", {title: title}) %> 
+    <%- include("partials/head.ejs", { title: title }) %>
     <link rel="stylesheet" href="/static/style/videos.css">
     <script src="/static/script/videos.js" defer></script>
     <script src="/static/script/loader.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   </head>
   <body>
-    <%- include("partials/header.ejs") %> 
-    <div id="main-content">
-      <form>
-        <label for="query">Enter query</label>
-        <input type="text" name="query" id="query">
-      </form>
+    <%- include("partials/header.ejs") %>
+    <main id="main-content">
+      <section id="search-section">
+        <h1>Search Videos</h1>
+        <form id="search-form">
+          <input 
+            type="text" 
+            name="query" 
+            id="query" 
+            placeholder="Search for videos..." 
+            required 
+          />
+          <button type="submit" id="search-btn">🔍 Search</button>
+        </form>
+      </section>
 
-      <div id="graphs"></div>
-    </div>
-    <%- include("partials/footer.ejs") %> 
+      <section id="results-section">
+        <div id="loading-spinner" class="hidden">
+          <div class="spinner"></div>
+        </div>
+        <div id="graphs">
+          <p>No results found. Try searching for something above!</p>
+        </div>
+      </section>
+    </main>
+    <%- include("partials/footer.ejs") %>
   </body>
 </html>

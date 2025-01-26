@@ -22,6 +22,7 @@ export async function sendPythonServerRequests(json: any[]): Promise<string[]> {
     body: JSON.stringify(data)
   });
 
+
   const outliersPromise = fetch(`http://machine-learning:${process.env.MACHINE_LEARNING_PORT}/outliers`, {
     method: "POST",
     headers: {

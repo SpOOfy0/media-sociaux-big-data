@@ -11,6 +11,7 @@ export async function sendPythonServerRequests(json: any[]): Promise<string[]> {
     },
     body: JSON.stringify(json)
   });
+  console.log("sentimentPromise", sentimentPromise);
 
   const sentiments = await (await sentimentPromise).json();
 

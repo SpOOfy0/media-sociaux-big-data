@@ -5,6 +5,3 @@ class RidgeRegressionModel(BaseRegressor):
     def __init__(self, **params):
         super().__init__(**params)
         self.model = Ridge(**params)
-
-if __name__ == "__main__":
-    print('eeeeee')

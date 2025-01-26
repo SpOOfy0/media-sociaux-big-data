@@ -1,43 +1,105 @@
-form {
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #2c3e50;
+}
+
+#main-content {
+  max-width: 800px;
+  margin: 2em auto;
+  padding: 1em;
+}
+
+/* Search Section */
+#search-section {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+#search-section h1 {
+  font-size: 2em;
+  margin-bottom: 1em;
+  color: #333;
+}
+
+#channel-form {
   display: flex;
-  justify-content: stretch;
-  padding: 0 4em;
-  flex-direction: column;
+  justify-content: center;
   gap: 0.5em;
 }
 
-form * {
-  font-size: 1.5em;
-  text-align: center;
+#channel-form .form-group {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
+#channel-form input {
+  padding: 0.8em 1em;
+  font-size: 1em;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  flex: 1;
+  transition: border-color 0.3s;
+}
+
+#channel-form input:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+#channel-form button {
+  padding: 0.8em 1.5em;
+  font-size: 1em;
+  border: none;
+  border-radius: 8px;
+  background-color: #3498db;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#channel-form button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+/* Comments Section */
+#comments-section {
+  margin-top: 2em;
 }
 
 #comments {
-  padding: 2em;
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 1.5em;
 }
 
 .comment {
-  display: grid;
-  grid-template-columns: 1fr 4em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 1em;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .comment div:last-of-type {
   font-style: italic;
-  color: rgb(73, 73, 73);
+  color: #7f8c8d;
 }
 
 .comment .score {
-  grid-row: span 2;
-  justify-self: center;
-  align-self: center;
-  width: 3em;
-  aspect-ratio: 1 / 1;
   display: grid;
   place-content: center;
-  border-radius: 2em;
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
   color: white;
+  font-weight: 600;
 }
 
 .score.positive {
@@ -46,4 +108,28 @@ form * {
 
 .score.negative {
   background-color: hsl(0, 50%, 30%);
+}
+
+/* Loading Spinner */
+#loading-spinner.hidden {
+  display: none;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ddd;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

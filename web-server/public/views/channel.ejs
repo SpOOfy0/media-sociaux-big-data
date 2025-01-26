@@ -1,21 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include("partials/head.ejs", {title: title}) %> 
+    <%- include("partials/head.ejs", { title: title }) %>
     <link rel="stylesheet" href="/static/style/channel.css">
     <script src="/static/script/channel.js" defer></script>
     <script src="/static/script/loader.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   </head>
   <body>
-    <%- include("partials/header.ejs") %> 
-    <div id="main-content">
-      <form>
-        <label for="channel">Enter channel</label>
-        <input type="text" name="channel" id="channel">
-      </form>
+    <%- include("partials/header.ejs") %>
+    <main id="main-content">
+      <section id="search-section">
+        <h1>Search Channel</h1>
+        <form id="channel-form">
+          <div class="form-group">
+            <input 
+              type="text" 
+              name="channel" 
+              id="channel" 
+              placeholder="Enter channel name..." 
+              required 
+            />
+            <button type="submit" id="search-btn">🔍 Search</button>
+          </div>
+        </form>
+      </section>
 
-      <div id="comments"></div>
-    </div>
-    <%- include("partials/footer.ejs") %> 
+      <section id="comments-section">
+        <div id="loading-spinner" class="hidden">
+          <div class="spinner"></div>
+        </div>
+        <div id="comments">
+          <p>No comments yet. Enter a channel to get started!</p>
+        </div>
+      </section>
+    </main>
+    <%- include("partials/footer.ejs") %>
   </body>
 </html>

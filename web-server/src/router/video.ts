@@ -10,6 +10,7 @@ VideoRouter.get("/", (_req, res) => {
 });
 
 VideoRouter.get("/:query", async (req, res) => {
+  console.log("dqsdqdqsdqsdqsd.post is working");
   const requestedType = req.query.type ?? "json";
   if (requestedType != "csv" && requestedType != "json") {
     logger.warn({

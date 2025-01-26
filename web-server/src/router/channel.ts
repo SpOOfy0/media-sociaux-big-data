@@ -14,6 +14,7 @@ ChannelRouter.get("/:query", async (req, res) => {
   const response = await fetch(`http://database:${process.env.DATABASE_PORT}/channels/${req.params.query}`);
   const json = await response.json();
   const data = json?.comments || [];
+  console.log("cahnnel loaded");
   // const data = (await (await fetch(`http://database:27017/channels/${req.params.query}`)).json()).comments;
   
   const [sentiment, explaination] = await sendPythonServerRequests(data);
